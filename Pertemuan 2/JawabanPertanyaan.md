@@ -29,7 +29,8 @@ Pada baris 10, 17, 24, 28 dan 32
 
 # Jawaban 2.5.3
 1. Pada baris 19
-2. Jawaban pada source code
+2. Pada baris tersebut dilakukan pengisian pada objek bernama b2 dengan parameter yang telah diinputkan
+3. Jawaban pada source code
 
 # Jawaban 2.6.3
 1. Maksud kode tersebut adalah membuat Array objek bernama ppArray di class PersegiPanjang dengan panjang array sebanyak 3
