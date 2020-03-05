@@ -9,10 +9,9 @@ public class BruteForce {
     }
 
     static void match(char Teks[], char Pola[]) {
-        int j;
         int cek = 0;
         for (int i = 0; i < Teks.length - Pola.length; i++) {
-            j = 0;
+            int j = 0;
             while (j < Pola.length && Pola[j] == Teks[i + j]) {
                 j++;
             }
