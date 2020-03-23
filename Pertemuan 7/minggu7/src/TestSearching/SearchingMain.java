@@ -9,13 +9,13 @@ public class SearchingMain {
         
         int cari = 30, posisi;
         
-//        System.out.println("Menggunakan Sequential Search");
-//        posisi = pencarian.FindSeqSearch(cari);
-//        if(posisi != -1){
-//            System.out.println("data : " + cari + " ditemukan pada indeks " + posisi);
-//        } else {
-//            System.out.println("data " + cari + " tidak ditemukan");
-//        }
+        System.out.println("Menggunakan Sequential Search");
+        posisi = pencarian.FindSeqSearch(cari);
+        if(posisi != -1){
+            System.out.println("data : " + cari + " ditemukan pada indeks " + posisi);
+        } else {
+            System.out.println("data " + cari + " tidak ditemukan");
+        }
         
         System.out.println("==============================");
         System.out.println("menggunakan binary search");
