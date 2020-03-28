@@ -1,3 +1,8 @@
+/*
+ * Nama  : Pramudya Wibowo
+ * NIM   : 1941720054
+ * Kelas : TI 1F
+ */
 package minggu8;
 
 public class StackMain {
@@ -9,7 +14,7 @@ public class StackMain {
         tumpukan.push(31);
         tumpukan.push(9);
         tumpukan.push(12);
-
+        
         tumpukan.print();
 
         tumpukan.pop();

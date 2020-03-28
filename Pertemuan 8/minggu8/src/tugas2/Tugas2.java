@@ -3,19 +3,20 @@
  * NIM   : 1941720054
  * Kelas : TI 1F
  */
-package minggu8;
+package tugas2;
 
-public class Stack {
+public class Tugas2 {
 
-    int size, top, data[];
+    int size, top;
+    String data[];
 
-    public Stack(){
+    public Tugas2(){
         
     }
     
-    public Stack(int size) {
+    public Tugas2(int size) {
         this.size = size;
-        data = new int[size];
+        data = new String[size];
         top = -1;
     }
 
@@ -35,7 +36,7 @@ public class Stack {
         }
     }
 
-    public void push(int dt) {
+    public void push(String dt) {
         if (!IsFull()) {
             top++;
             data[top] = dt;
@@ -46,23 +47,24 @@ public class Stack {
 
     public void pop() {
         if (!IsEmpty()) {
-            int x = data[top];
+            String x = data[top];
             top--;
-            System.out.println("Data yang keluar: " + x);
+            System.out.println("\nData yang keluar\t: " + x);
         } else {
             System.out.println("Stack masih kosong");
         }
     }
 
     public void peek() {
-        System.out.println("Elemen teratas " + data[top]);
+        System.out.println("\nElemen teratas\t\t: " + data[top]);
     }
 
     public void print() {
-        System.out.println("\nIsi stack: ");
+        System.out.print("\nKalimat Dibalik\t\t: ");
         for (int i = top; i >= 0; i--) {
-            System.out.println(data[i]);
+            System.out.print(data[i]+ " ");
         }
+        System.out.println();
     }
 
     public void clear() {

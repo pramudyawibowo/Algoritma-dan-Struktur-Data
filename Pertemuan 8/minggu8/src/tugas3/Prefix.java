@@ -1,15 +1,21 @@
-package minggu8;
+/*
+ * Nama  : Pramudya Wibowo
+ * NIM   : 1941720054
+ * Kelas : TI 1F
+ */
+package tugas3;
 
-public class Postfix {
+public class Prefix {
 
-    int n, top;
-    char stack[];
+    public int n;
+    public int top;
+    public char[] stack;
 
-    public Postfix(int total) {
+    public Prefix(int total) {
         n = total;
         top = -1;
         stack = new char[n];
-        push('(');
+        push(')');
     }
 
     public void push(char c) {
@@ -66,11 +72,11 @@ public class Postfix {
             if (IsOperand(c)) {
                 P = P + c;
             }
-            if (c == '(') {
+            if (c == ')') {
                 push(c);
             }
-            if (c == ')') {
-                while (stack[top] != '(') {
+            if (c == '(') {
+                while (stack[top] != ')') {
                     P = P + pop();
                 }
                 char temp = pop();
