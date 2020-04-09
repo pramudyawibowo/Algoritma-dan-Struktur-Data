@@ -68,18 +68,23 @@ public class Queue {
     }
 
     public void Enqueue(int data) {
-        if (isFull()) {
-            System.out.println("Antrian sudah penuh");
-        } else {
-            boolean cek = false;
-            for (int i = 0; i < size; i++) {
-                if (q[i].noRekening.equals(Integer.toString(data))) {
-                    cek = true;
-                    break;
+        boolean cek = false;
+        if (!isEmpty()) {
+            if (!(q[rear].noRekening.equals(Integer.toString(data)))) {
+                for (int i = front; i != rear; i = (i + 1) % max) {
+                    if (q[i].noRekening.equals(Integer.toString(data))) {
+                        cek = true;
+                    }
                 }
+            } else {
+                cek = true;
             }
-            if (cek) {
-                System.out.println("No rekening sudah ada, masukkan yang lain!");
+        }
+        if (cek) {
+            System.out.println("No rekening sudah ada, masukkan yang lain!");
+        } else {
+            if (isFull()) {
+                System.out.println("Antrian sudah penuh!");
             } else {
                 if (isEmpty()) {
                     front = rear = 0;
@@ -95,7 +100,6 @@ public class Queue {
                 q[rear] = new Nasabah(Integer.toString(data), nama);
                 size++;
             }
-
         }
     }
 
