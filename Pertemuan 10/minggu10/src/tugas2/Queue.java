@@ -152,7 +152,7 @@ public class Queue {
         }
     }
 
-    public void peekAt(int position) {
+    public void printNasabah(int position) {
         if (!isEmpty()) {
             if (position < 1 || position > max) {
                 System.out.println("Posisi antrian yang anda masukkan tidak ada");

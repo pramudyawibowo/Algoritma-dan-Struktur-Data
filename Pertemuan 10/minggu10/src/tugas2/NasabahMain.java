@@ -61,7 +61,7 @@ public class NasabahMain {
                 case 7:
                     System.out.print("Masukkan posisi antrian yang ingin diketahui datanya : ");
                     int pos = sc.nextInt();
-                    Q.peekAt(pos);
+                    Q.printNasabah(pos);
                     break;
             }
         } while(pilih > 0 || pilih < 8);   
