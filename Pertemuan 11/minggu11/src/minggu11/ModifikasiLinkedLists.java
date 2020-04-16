@@ -26,7 +26,7 @@ public class ModifikasiLinkedLists {
 
     public void add(int item, int index) throws Exception {
         if (index < 0 || index > size) {
-            throw new Exception("Nilai index diluar batas");
+            throw new Exception("Nilai Index di Luar Batas!");
         }
         if (isEmpty() || index == 0) {
             addFirst(item);
@@ -37,8 +37,8 @@ public class ModifikasiLinkedLists {
             }
             Node next = (tmp == null) ? null : tmp.next;
             tmp.next = new Node(item, next);
+            size++;
         }
-        size++;
     }
 
     public void addLast(int item) {
@@ -50,22 +50,43 @@ public class ModifikasiLinkedLists {
                 tmp = tmp.next;
             }
             tmp.next = new Node(item, null);
+            size++;
         }
-        size++;
     }
 
-    public int getFirst() throws Exception {
+    public Object getFirst() throws Exception {
         if (isEmpty()) {
-            throw new Exception("LinkedLists Kosong");
+            throw new Exception("Linked List KOSONG!");
         }
         return head.data;
     }
 
+    public Object getLast() throws Exception {
+        if (isEmpty()) {
+            throw new Exception("Linked List KOSONG!");
+        }
+        Node tmp = head;
+        while (tmp.next != null) {
+            tmp = tmp.next;
+        }
+        return tmp.data;
+    }
+
+    public Object get(int index) throws Exception {
+        if (isEmpty() || index >= size) {
+            throw new Exception("Nilai index diluar batas!");
+        }
+        Node tmp = head;
+        for (int i = 0; i < index; i++) {
+            tmp = tmp.next;
+        }
+        return tmp.data;
+    }
+
     public void remove(int index) throws Exception {
         if (isEmpty() || index >= size) {
-            throw new Exception("Nilai index di luar batas");
-        }
-        if (isEmpty() || index == 0) {
+            throw new Exception("Nilai Index di luar batas!");
+        } else if (isEmpty() || index == 0) {
             removeFirst();
         } else {
             Node prev = head;
@@ -92,14 +113,13 @@ public class ModifikasiLinkedLists {
     public void print() {
         if (!isEmpty()) {
             Node tmp = head;
-            System.out.print("Data : ");
             while (tmp != null) {
-                System.out.print(tmp.data + "\t");
+                System.out.println(tmp.data + "\t");
                 tmp = tmp.next;
             }
             System.out.println();
         } else {
-            System.out.println("LinkedLists kosong");
+            System.out.println("Linked List KOSONG!");
         }
     }
 
@@ -110,10 +130,10 @@ public class ModifikasiLinkedLists {
         while (tmp.next != null) {
             tmp = tmp.next;
             index++;
-            if (head.data == cari) {
+            if ((int)head.data == cari) {
                 ditemukan = true;
                 break;
-            } else if (tmp.data == cari) {
+            } else if ((int)tmp.data == cari) {
                 ditemukan = true;
                 index++;
                 break;
@@ -133,10 +153,10 @@ public class ModifikasiLinkedLists {
         while (tmp.next != null) {
             tmp = tmp.next;
             index++;
-            if (head.data == cari) {
+            if ((int)head.data == cari) {
                 removeFirst();
                 break;
-            } else if (tmp.data == cari) {
+            } else if ((int)tmp.data == cari) {
                 ditemukan = true;
                 break;
             }
@@ -170,10 +190,10 @@ public class ModifikasiLinkedLists {
             while (tmp.next != null) {
                 tmp = tmp.next;
                 index++;
-                if (head.data == cari) {
+                if ((int)head.data == cari) {
                     ditemukan = true;
                     break;
-                } else if (tmp.data == cari) {
+                } else if ((int)tmp.data == cari) {
                     ditemukan = true;
                     index++;
                     break;
