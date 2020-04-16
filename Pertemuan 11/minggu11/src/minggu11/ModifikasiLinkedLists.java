@@ -113,8 +113,9 @@ public class ModifikasiLinkedLists {
     public void print() {
         if (!isEmpty()) {
             Node tmp = head;
+            System.out.print("Data : ");
             while (tmp != null) {
-                System.out.println(tmp.data + "\t");
+                System.out.print(tmp.data + " ");
                 tmp = tmp.next;
             }
             System.out.println();
@@ -189,7 +190,6 @@ public class ModifikasiLinkedLists {
         } else {
             while (tmp.next != null) {
                 tmp = tmp.next;
-                index++;
                 if ((int) head.data == cari) {
                     ditemukan = true;
                     break;
@@ -198,6 +198,7 @@ public class ModifikasiLinkedLists {
                     index++;
                     break;
                 }
+                index++;
             }
         }
         if (ditemukan) {
