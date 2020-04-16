@@ -28,7 +28,7 @@ public class MainDaftarMahasiswa {
             String nama, alamat;
             do {
                 try {
-                    System.out.println("\nMenu");
+                    System.out.println("Menu");
                     System.out.println("1. Tambah");
                     System.out.println("2. Hapus");
                     System.out.println("3. Cari");
@@ -139,6 +139,7 @@ public class MainDaftarMahasiswa {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
+                System.out.println();
             } while (pilih != 4);
         } catch (Exception e) {
             System.out.println(e.getMessage());

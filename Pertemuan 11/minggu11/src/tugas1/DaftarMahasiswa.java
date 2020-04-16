@@ -183,7 +183,7 @@ public class DaftarMahasiswa {
             System.out.println("Data pada indeks ke-" + index + " adalah : ");
             System.out.println("=============================");
             System.out.println("NIM\t: " + tmp.nim);
-            System.out.println("Mama\t: " + tmp.nama);
+            System.out.println("Nama\t: " + tmp.nama);
             System.out.println("Alamat\t: " + tmp.alamat);
             System.out.println("=============================");
         }
