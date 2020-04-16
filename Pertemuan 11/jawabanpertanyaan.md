@@ -7,3 +7,5 @@
 
 4. Modifikasi pada project minggu11, package minggu11, class ModifikasiLinkedLists.java dan ModifikasiMainLinkedLists.java
 <img src = 4.png>
+
+5. Modifikasi pada project minggu11, package minggu11, class ModifikasiLinkedLists.java dan ModifikasiMainLinkedLists.java
