@@ -130,10 +130,10 @@ public class ModifikasiLinkedLists {
         while (tmp.next != null) {
             tmp = tmp.next;
             index++;
-            if ((int)head.data == cari) {
+            if ((int) head.data == cari) {
                 ditemukan = true;
                 break;
-            } else if ((int)tmp.data == cari) {
+            } else if ((int) tmp.data == cari) {
                 ditemukan = true;
                 index++;
                 break;
@@ -153,10 +153,10 @@ public class ModifikasiLinkedLists {
         while (tmp.next != null) {
             tmp = tmp.next;
             index++;
-            if ((int)head.data == cari) {
+            if ((int) head.data == cari) {
                 removeFirst();
                 break;
-            } else if ((int)tmp.data == cari) {
+            } else if ((int) tmp.data == cari) {
                 ditemukan = true;
                 break;
             }
@@ -190,10 +190,10 @@ public class ModifikasiLinkedLists {
             while (tmp.next != null) {
                 tmp = tmp.next;
                 index++;
-                if ((int)head.data == cari) {
+                if ((int) head.data == cari) {
                     ditemukan = true;
                     break;
-                } else if ((int)tmp.data == cari) {
+                } else if ((int) tmp.data == cari) {
                     ditemukan = true;
                     index++;
                     break;
