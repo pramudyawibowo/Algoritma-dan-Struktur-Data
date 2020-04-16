@@ -3,14 +3,14 @@
  * NIM   : 1941720054
  * Kelas : TI 1F
  */
-package minggu11;
+package tugas1;
 
-public class ModifikasiLinkedLists {
+public class DaftarMahasiswa {
 
-    Node head;
+    Mahasiswa head;
     int size;
 
-    public ModifikasiLinkedLists() {
+    public DaftarMahasiswa() {
         head = null;
         size = 0;
     }
@@ -19,37 +19,37 @@ public class ModifikasiLinkedLists {
         return head == null;
     }
 
-    public void addFirst(int item) {
-        head = new Node(item, head);
+    public void addFirst(int nim, String nama, String alamat) {
+        head = new Mahasiswa(nim, nama, alamat, head);
         size++;
     }
 
-    public void add(int item, int index) throws Exception {
+    public void add(int nim, String nama, String alamat, int index) throws Exception {
         if (index < 0 || index > size) {
             throw new Exception("Nilai Index di Luar Batas!");
         }
         if (isEmpty() || index == 0) {
-            addFirst(item);
+            addFirst(nim, nama, alamat);
         } else {
-            Node tmp = head;
+            Mahasiswa tmp = head;
             for (int i = 1; i < index; i++) {
                 tmp = tmp.next;
             }
-            Node next = (tmp == null) ? null : tmp.next;
-            tmp.next = new Node(item, next);
+            Mahasiswa next = (tmp == null) ? null : tmp.next;
+            tmp.next = new Mahasiswa(nim, nama, alamat, next);
             size++;
         }
     }
 
-    public void addLast(int item) {
+    public void addLast(int nim, String nama, String alamat) {
         if (isEmpty()) {
-            addFirst(item);
+            addFirst(nim, nama, alamat);
         } else {
-            Node tmp = head;
+            Mahasiswa tmp = head;
             while (tmp.next != null) {
                 tmp = tmp.next;
             }
-            tmp.next = new Node(item, null);
+            tmp.next = new Mahasiswa(nim, nama, alamat, null);
             size++;
         }
     }
@@ -58,29 +58,29 @@ public class ModifikasiLinkedLists {
         if (isEmpty()) {
             throw new Exception("Linked List KOSONG!");
         }
-        return head.data;
+        return head.nim;
     }
 
     public Object getLast() throws Exception {
         if (isEmpty()) {
             throw new Exception("Linked List KOSONG!");
         }
-        Node tmp = head;
+        Mahasiswa tmp = head;
         while (tmp.next != null) {
             tmp = tmp.next;
         }
-        return tmp.data;
+        return tmp.nim;
     }
 
     public Object get(int index) throws Exception {
         if (isEmpty() || index >= size) {
             throw new Exception("Nilai index diluar batas!");
         }
-        Node tmp = head;
+        Mahasiswa tmp = head;
         for (int i = 0; i < index; i++) {
             tmp = tmp.next;
         }
-        return tmp.data;
+        return tmp.nim;
     }
 
     public void remove(int index) throws Exception {
@@ -89,8 +89,8 @@ public class ModifikasiLinkedLists {
         } else if (isEmpty() || index == 0) {
             removeFirst();
         } else {
-            Node prev = head;
-            Node cur = head.next;
+            Mahasiswa prev = head;
+            Mahasiswa cur = head.next;
             for (int i = 1; i < index; i++) {
                 prev = cur;
                 cur = prev.next;
@@ -112,52 +112,55 @@ public class ModifikasiLinkedLists {
 
     public void print() {
         if (!isEmpty()) {
-            Node tmp = head;
-            System.out.print("Data : ");
+            Mahasiswa tmp = head;
+            System.out.println("Data : ");
+            System.out.println("=============================");
             while (tmp != null) {
-                System.out.print(tmp.data + " ");
+                System.out.println("NIM\t: " + tmp.nim);
+                System.out.println("Mama\t: " + tmp.nama);
+                System.out.println("Alamat\t: " + tmp.alamat);
+                System.out.println("=============================");
                 tmp = tmp.next;
             }
-            System.out.println();
         } else {
             System.out.println("Linked List KOSONG!");
         }
     }
 
-    public void addByValue(int cari, int item) throws Exception {
-        Node tmp = head;
+    public void addByValue(int cari, int nim, String nama, String alamat) throws Exception {
+        Mahasiswa tmp = head;
         int index = 0;
         boolean ditemukan = false;
         while (tmp.next != null) {
             tmp = tmp.next;
             index++;
-            if ((int) head.data == cari) {
+            if ((int) head.nim == cari) {
                 ditemukan = true;
                 break;
-            } else if ((int) tmp.data == cari) {
+            } else if ((int) tmp.nim == cari) {
                 ditemukan = true;
                 index++;
                 break;
             }
         }
         if (ditemukan) {
-            add(item, index);
+            add(nim, nama, alamat, index);
         } else {
             throw new Exception("Data tidak ditemukan!");
         }
     }
 
     public void removeByValue(int cari) throws Exception {
-        Node tmp = head;
+        Mahasiswa tmp = head;
         int index = 0;
         boolean ditemukan = false;
         while (tmp.next != null) {
             tmp = tmp.next;
             index++;
-            if ((int) head.data == cari) {
+            if ((int) head.nim == cari) {
                 removeFirst();
                 break;
-            } else if ((int) tmp.data == cari) {
+            } else if ((int) tmp.nim == cari) {
                 ditemukan = true;
                 break;
             }
@@ -173,16 +176,21 @@ public class ModifikasiLinkedLists {
         if (index < 0 || index > size) {
             throw new Exception("Nilai index diluar batas");
         } else {
-            Node tmp = head;
+            Mahasiswa tmp = head;
             for (int i = 0; i < index; i++) {
                 tmp = tmp.next;
             }
-            System.out.println("Data pada indeks ke-" + index + " adalah : " + tmp.data);
+            System.out.println("Data pada indeks ke-" + index + " adalah : ");
+            System.out.println("=============================");
+            System.out.println("NIM\t: " + tmp.nim);
+            System.out.println("Mama\t: " + tmp.nama);
+            System.out.println("Alamat\t: " + tmp.alamat);
+            System.out.println("=============================");
         }
     }
 
     public void cariKey(int cari) throws Exception {
-        Node tmp = head;
+        Mahasiswa tmp = head;
         int index = 0;
         boolean ditemukan = false;
         if (isEmpty()) {
@@ -190,10 +198,10 @@ public class ModifikasiLinkedLists {
         } else {
             while (tmp.next != null) {
                 tmp = tmp.next;
-                if ((int) head.data == cari) {
+                if ((int) head.nim == cari) {
                     ditemukan = true;
                     break;
-                } else if ((int) tmp.data == cari) {
+                } else if ((int) tmp.nim == cari) {
                     ditemukan = true;
                     index++;
                     break;
@@ -202,9 +210,10 @@ public class ModifikasiLinkedLists {
             }
         }
         if (ditemukan) {
-            System.out.println("Data " + cari + " ditemukan pada indeks ke-" + index);
+            System.out.println("NIM " + cari + " ditemukan pada indeks ke-" + index);
         } else {
             throw new Exception("Data tidak ditemukan!");
         }
     }
+
 }
