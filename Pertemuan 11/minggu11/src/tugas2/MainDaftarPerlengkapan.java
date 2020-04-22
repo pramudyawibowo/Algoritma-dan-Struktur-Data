@@ -89,6 +89,12 @@ public class MainDaftarPerlengkapan {
                     case 8:
                         data.hitungBerat();
                         break;
+                    case 9:
+                        System.out.println("\nKeluar Program");
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("Pilihan Salah!");
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
