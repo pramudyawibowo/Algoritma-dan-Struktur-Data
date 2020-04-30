@@ -3,7 +3,8 @@
  * NIM   : 1941720054
  * Kelas : TI 1F
  */
-package minggu13;
+package tugas1;
+
 public class DoubleLinkedLists {
     
     Node head;
@@ -173,5 +174,32 @@ public class DoubleLinkedLists {
             tmp = tmp.next;
         }
         return tmp.data;
+    }
+    
+    public void cari(int cari) throws Exception {
+        Node current = head;
+        int index = 0;
+        boolean ditemukan = false;
+        if (isEmpty()) {
+            System.out.println("LinkedLists kosong");
+        } else {
+            while (current.next != null) {
+                current = current.next;
+                if ((int) head.data == cari) {
+                    ditemukan = true;
+                    break;
+                } else if ((int) current.data == cari) {
+                    ditemukan = true;
+                    index++;
+                    break;
+                }
+                index++;
+            }
+        }
+        if (ditemukan) {
+            System.out.println("Data : " + cari + " ditemukan pada indeks ke-" + index);
+        } else {
+            throw new Exception("Data tidak ditemukan!");
+        }
     }
 }
