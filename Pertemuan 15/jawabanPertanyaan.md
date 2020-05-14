@@ -26,7 +26,8 @@ Dalam gambar tersebut dapat kita ketahui beberapa edge yaitu (J,B), (B,C), (C,P)
 
 9. Dengan cara mencocokkan menggunakan perulangan pada variabel i, ketika i bernilai sama dengan parameter destination yang diinputkan, maka edge akan dihapus.
 
-10. 
+10. Tidak terjadi kesalahan, dan edge ke-3 dari vertex 1 dapat terhapus.  
+<img src = 10.png>
 
 # Jawaban Pertanyaan Percobaan 15.4.3
 

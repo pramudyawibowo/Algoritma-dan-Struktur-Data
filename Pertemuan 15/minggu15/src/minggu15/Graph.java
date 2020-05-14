@@ -91,6 +91,5 @@ public class Graph {
         graph.degree(1);
         graph.removeEdge(1, 2);
         graph.printGraph();
-        graph.degree(1);
     }
 }

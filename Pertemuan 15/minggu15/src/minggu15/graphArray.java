@@ -31,7 +31,7 @@ public class graphArray {
         } catch (ArrayIndexOutOfBoundsException index) {
             System.out.println("Vertex tidak ada");
         }
-        return 0;
+        return -1;
     }
 
     public static void main(String[] args) {
