@@ -125,8 +125,8 @@ public class DoubleLinkedList {
                 while (i < index) {
                     current = current.next;
                     i++;
-                    current.rusak = rusak;
                 }
+                current.rusak = rusak;
             }
         }
     }
