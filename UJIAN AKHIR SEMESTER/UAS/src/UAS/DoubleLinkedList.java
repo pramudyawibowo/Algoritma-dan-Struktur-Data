@@ -47,7 +47,7 @@ public class DoubleLinkedList {
     public void print() {
         if (!isEmpty()) {
             Node tmp = head;
-            System.out.println("Index\tKode\tJudul\t\tPenerbit\tStok\tRusak");
+            System.out.println("Index\tKode\tJudul\tPenerbit\tStok\tRusak");
             int index = 0;
             while (tmp != null) {
                 System.out.println(index + "\t" + tmp.kode + "\t" + tmp.judul + "\t" + tmp.penerbit + "\t" + tmp.stok + "\t" + tmp.rusak);
@@ -114,17 +114,19 @@ public class DoubleLinkedList {
     }
 
     public void update(int index, int rusak) {
+        Node current = head;
         if (isEmpty()) {
             System.out.println("Daftar buku kosong, tidak dapat mengubah");
         } else {
-            Node current = head;
-            int i = 0;
-            while (i < index) {
-                if(i == index){
+            if (index == 0) {
+                current.rusak = rusak;
+            } else {
+                int i = 0;
+                while (i < index) {
+                    current = current.next;
+                    i++;
                     current.rusak = rusak;
                 }
-                current = current.next;
-                i++;
             }
         }
     }
@@ -146,7 +148,7 @@ public class DoubleLinkedList {
             }
         }
     }
-    
+
     public void cari2(String cari) throws Exception {
         Node current = head;
         int index = 0;
