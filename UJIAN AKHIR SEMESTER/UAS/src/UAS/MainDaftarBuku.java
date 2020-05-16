@@ -14,21 +14,6 @@ public class MainDaftarBuku {
         Scanner sc = new Scanner(System.in);
         int pilih = 0, kode, stok, rusak, index, cari;
         String judul, penerbit;
-        if (data.isEmpty()) {
-            System.out.println("Data masih kosong!");
-            System.out.print("Kode: ");
-            kode = sc.nextInt();
-            sc.nextLine();
-            System.out.print("Judul: ");
-            judul = sc.nextLine();
-            System.out.print("Penerbit: ");
-            penerbit = sc.nextLine();
-            System.out.print("Jumlah Stok: ");
-            stok = sc.nextInt();
-            System.out.print("Jumlah Rusak: ");
-            rusak = sc.nextInt();
-            data.addLast(kode, judul, penerbit, stok, rusak);
-        }
         do {
             try {
                 System.out.println("Pilih Menu:");
