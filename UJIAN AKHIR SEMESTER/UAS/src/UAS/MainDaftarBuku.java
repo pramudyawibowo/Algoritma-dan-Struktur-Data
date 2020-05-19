@@ -8,7 +8,7 @@ package UAS;
 import java.util.Scanner;
 
 public class MainDaftarBuku {
-
+    
     public static void main(String[] args) {
         DoubleLinkedList data = new DoubleLinkedList();
         Scanner sc = new Scanner(System.in);
@@ -32,15 +32,18 @@ public class MainDaftarBuku {
                         System.out.print("Kode: ");
                         kode = sc.nextInt();
                         sc.nextLine();
-                        System.out.print("Judul: ");
-                        judul = sc.nextLine();
-                        System.out.print("Penerbit: ");
-                        penerbit = sc.nextLine();
-                        System.out.print("Jumlah Stok: ");
-                        stok = sc.nextInt();
-                        System.out.print("Jumlah Rusak: ");
-                        rusak = sc.nextInt();
-                        data.addLast(kode, judul, penerbit, stok, rusak);
+                        if (data.cekAda(kode)) {
+                        } else {
+                            System.out.print("Judul: ");
+                            judul = sc.nextLine();
+                            System.out.print("Penerbit: ");
+                            penerbit = sc.nextLine();
+                            System.out.print("Jumlah Stok: ");
+                            stok = sc.nextInt();
+                            System.out.print("Jumlah Rusak: ");
+                            rusak = sc.nextInt();
+                            data.addLast(kode, judul, penerbit, stok, rusak);
+                        }
                         break;
                     case 2:
                         System.out.print("Masukkan index buku keluar: ");
@@ -50,9 +53,7 @@ public class MainDaftarBuku {
                     case 3:
                         System.out.print("Masukkan index buku rusak: ");
                         index = sc.nextInt();
-                        System.out.print("Masukkan jumlah rusak: ");
-                        int rusak2 = sc.nextInt();
-                        data.update(index, rusak2);
+                        data.update(index);
                         break;
                     case 4:
                         data.print();

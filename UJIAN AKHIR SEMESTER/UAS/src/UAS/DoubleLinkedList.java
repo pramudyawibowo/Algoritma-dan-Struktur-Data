@@ -5,8 +5,11 @@
  */
 package UAS;
 
+import java.util.Scanner;
+
 public class DoubleLinkedList {
 
+    Scanner sc = new Scanner(System.in);
     Node head;
     int size;
 
@@ -113,11 +116,14 @@ public class DoubleLinkedList {
         }
     }
 
-    public void update(int index, int rusak) {
+    public void update(int index) {
         Node current = head;
         if (isEmpty()) {
             System.out.println("Daftar buku kosong, tidak dapat mengubah");
         } else {
+            System.out.println("Kode tersebut sudah ada/ditemukan, update rusak");
+            System.out.print("Masukkan jumlah rusak: ");
+            int rusak = sc.nextInt();
             if (index == 0) {
                 current.rusak = rusak;
             } else {
@@ -134,17 +140,22 @@ public class DoubleLinkedList {
     public void cari(int cari) throws Exception {
         Node current = head;
         int index = 0;
+        boolean ditemukan = false;
         if (isEmpty()) {
-            System.out.println("LinkedLists kosong");
+            System.out.println("Daftar buku kosong");
         } else {
-            while (current.next != null && (int) current.kode == cari) {
+            while (current != null) {
+                if ((int) current.kode == cari) {
+                    ditemukan = true;
+                    break;
+                }
                 current = current.next;
                 index++;
             }
-            if ((int) current.kode == cari) {
-                System.out.println("Data : " + cari + " ditemukan pada indeks ke-" + index);
+            if (ditemukan) {
+                System.out.println("Buku : " + cari + " ditemukan pada indeks ke-" + index);
             } else {
-                throw new Exception("Data tidak ditemukan!");
+                throw new Exception("Buku tidak ditemukan!");
             }
         }
     }
@@ -152,18 +163,42 @@ public class DoubleLinkedList {
     public void cari2(String cari) throws Exception {
         Node current = head;
         int index = 0;
+        boolean ditemukan = false;
         if (isEmpty()) {
-            System.out.println("LinkedLists kosong");
+            System.out.println("Daftar buku kosong");
         } else {
-            while (current.next != null && current.judul.equals(cari)) {
+            while (current != null) {
+                if (current.judul.equals(cari)) {
+                    ditemukan = true;
+                    System.out.println(ditemukan);
+                    break;
+                }
                 current = current.next;
                 index++;
             }
-            if (current.judul.equals(cari)) {
-                System.out.println("Data : " + cari + " ditemukan pada indeks ke-" + index);
+            if (ditemukan) {
+                System.out.println("Buku : " + cari + " ditemukan pada indeks ke-" + index);
             } else {
-                throw new Exception("Data tidak ditemukan!");
+                throw new Exception("Buku tidak ditemukan!");
             }
         }
+    }
+
+    public boolean cekAda(int kode) {
+        Node current = head;
+        boolean ada = false;
+        int index = 0;
+        while (current != null) {
+            if ((int) current.kode == kode) {
+                ada = true;
+                break;
+            }
+            current = current.next;
+            index++;
+        }
+        if (ada) {
+            update(index);
+        }
+        return ada;
     }
 }
